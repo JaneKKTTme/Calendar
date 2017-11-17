@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <locale.h>
 
 void years(int fday, int fmonth, int fyear)
 {
@@ -60,7 +59,7 @@ void years(int fday, int fmonth, int fyear)
             case 22:
             case 29:
             case 36:
-                printf("Понедельник");
+                printf("Monday\n");
                 break;
         case 2:
             case 9:
@@ -68,7 +67,7 @@ void years(int fday, int fmonth, int fyear)
             case 30:
             case 37:
             case 23:
-                printf("Вторник");
+                printf("Tuesday\n");
                 break;
         case 3:
             case 10:
@@ -76,35 +75,35 @@ void years(int fday, int fmonth, int fyear)
             case 24:
             case 31:
             case 38:
-                printf("Среда");
+                printf("Wednesday\n");
                 break;
         case 4:
             case 11:
             case 18:
             case 25:
             case 32:
-                printf("Четверг");
+                printf("Thursday\n");
                 break;
         case 5:
             case 12:
             case 19:
             case 26:
             case 33:
-                printf("Пятница");
+                printf("Friday\n");
                 break;
         case 6:
             case 13:
             case 20:
             case 27:
             case 34:
-                printf("Суббота");
+                printf("Saturday\n");
                 break;
         case 7:
             case 14:
             case 21:
             case 28:
             case 35:
-                printf("Воскресенье");
+                printf("Sunday\n");
                 break;
     }
 }
@@ -112,13 +111,14 @@ void years(int fday, int fmonth, int fyear)
 int main()
 {
     int day, year, month;
-    setlocale(LC_ALL, "Rus");
-    printf("Введити дату в виде дд.мм.гг: ");
+    printf("Enter date as day.month.year: ");
     scanf("%d", &day);
     scanf(".%d", &month);
     scanf(".%d", &year);
 
-    years(day, month, year);
-
+    if (day<=31 && month<=12)
+        years(day, month, year);
+    else
+        printf("You are loser!!!");
     return 0;
 }
